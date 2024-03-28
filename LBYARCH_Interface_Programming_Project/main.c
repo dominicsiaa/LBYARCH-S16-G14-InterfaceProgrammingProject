@@ -46,10 +46,10 @@ void calculateExecutionTime(int n) {
     printf("Average time taken by x86-64 Assembly version for 30 times: %f s\n\n", avg_time_asm);
 
     printf("CORRECTNESS CHECK\n");
-    float result_c = c_sdot(n, a, b);
-    float result_asm = asm_sdot(n, a, b);
-    printf("sdot = %f\n", result_c);
-    if (result_c == result_asm) {
+    float sdot_c = c_sdot(n, a, b);
+    float sdot_asm = asm_sdot(n, a, b);
+    printf("sdot = %f\n", sdot_c);
+    if (sdot_c == sdot_asm) {
         printf("The x86-64 kernel output is correct\n\n");
     }
     else {
