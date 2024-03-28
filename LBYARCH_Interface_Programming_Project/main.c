@@ -1,22 +1,75 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <time.h>
 
-extern float asm_sdot(int n, float x[], float y[]);
+float c_sdot();
+extern float asm_sdot(int n, float a[], float b[]);
 
-int main() {
-	int n = 20;
-	float x[20] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0 };
-	float y[20] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0 };
-	float result = asm_sdot(n, x, y);
-	printf("Result: %f\n", result);
-	return 0;
+void generateRandomFloats(float* array, int n) {
+	for (int i = 0; i < n; i++) {
+		array[i] = (float)rand() / (float)(RAND_MAX);
+	}
 }
 
+void calculateExecutionTime(int n) {
+    float* a, * b;
+
+    srand((unsigned int)time(NULL));
+
+
+    a = (float*)malloc(n * sizeof(float));
+    b = (float*)malloc(n * sizeof(float));
+
+    generateRandomFloats(a, n);
+    generateRandomFloats(b, n);
+
+    double total_time_c = 0.0;
+    double total_time_asm = 0.0;
+
+    for (int i = 0; i < 30; ++i) {
+
+        clock_t start_c = clock();
+        float result_c = c_sdot(n, a, b);
+        clock_t end_c = clock();
+        total_time_c += ((double)(end_c - start_c)) / CLOCKS_PER_SEC;
+
+        clock_t start_asm = clock();
+        float result_asm = asm_sdot(n, a, b);
+        clock_t end_asm = clock();
+        total_time_asm += ((double)(end_asm - start_asm)) / CLOCKS_PER_SEC;
+    }
+
+    double avg_time_c = total_time_c / 30.0;
+    double avg_time_asm = total_time_asm / 30.0;
+
+    printf("Average time taken by C version over 30 runs: %f seconds\n", avg_time_c);
+    printf("Average time taken by x86-64 Assembly version over 30 runs: %f seconds\n", avg_time_asm);
+
+    free(a);
+    free(b);
+}
+
+int main() {
+    int n = 0;
+
+    printf("n = 2^20\n");
+    n = 1 << 20;
+    calculateExecutionTime(n);
+
+    printf("n = 2^24\n");
+    n = 1 << 24;
+    calculateExecutionTime(n);
+
+    printf("n = 2^28\n");
+    n = 1 << 28;
+    calculateExecutionTime(n);
+
+    return 0;
+}
+
+
 /*
-- Set up github
-- 30 times repeat
-- Different vector sizes (same/random values)
 - Measure average time
 - Sanity check, compare results of x86 and C should be same "the x86-64 kernel output is correct"
 - Github README:
@@ -25,3 +78,5 @@ int main() {
 	iii.) Take a screenshot of the program output, including the correctness check (x86-64).
 
 */
+
+// https://stackoverflow.com/questions/5248915/execution-time-of-c-program
