@@ -19,7 +19,4 @@ Results:
 
 Analysis:
 
-Our comparative analysis between Assembly and C programming languages indicates that Assembly can lead to a noticeable reduction in execution time, demonstrating 28.39%, 28.86%, and 30.22% improvements for data sizes of 2^20, 2^24, and 2^28 respectively. This performance enhancement is attributed to Assembly's lower-level nature, which, despite introducing more overhead, presents a broader spectrum of optimization opportunities. Conversely, C's slightly slower performance is due to its higher-level abstraction, which entails less overhead but also fewer options for fine-tuning performance. Nevertheless, both languages exhibit impressive speed when compared to other programming options, underscoring the value of mastering Assembly for its exceptional efficiency.
-
-
-
+Our comparative analysis between Assembly and C programming languages indicates that Assembly can lead to a noticeable reduction in execution time, demonstrating 28.39%, 28.86%, and 30.22% improvements for data sizes of 2^20, 2^24, and 2^28 respectively. This performance enhancement is attributed to Assembly's lower-level nature, which reduces overhead and presents a broader spectrum of optimization opportunities. Conversely, C's slightly slower performance is due to its higher-level abstraction, which adds more overhead and also fewer options for optimizing performance. Nevertheless, both languages exhibit impressive speed when compared to other programming options which show the value of learning Assembly for its efficiency.
