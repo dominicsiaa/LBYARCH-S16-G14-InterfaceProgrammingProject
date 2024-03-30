@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <time.h>
+#include <chrono>
 
-float c_sdot();
+#include "c_sdot.c"
 extern float asm_sdot(int n, float a[], float b[]);
 
 void generateRandomFloats(float* array, int n) {
@@ -39,6 +40,8 @@ void calculateExecutionTime(int n) {
     }
 
     double avg_time_c = total_time_c / 30.0;
+    printf("total_time_c: %f\n", total_time_c); // Debugging purposes
+    printf("avg_time_c: %f\n", avg_time_c); // Debugging purposes
     double avg_time_asm = total_time_asm / 30.0;
 
     printf("EXECUTION TIME MEASUREMENT\n");

@@ -7,6 +7,7 @@ Results:
 - Program output with correctness check can be found in output.png
 - Execution time measurements were done on a vector with the same value
 
+DEBUG MODE:
 * 2^20
   * C:          0.002233 s
   * Assembly:   0.001600 s
@@ -16,6 +17,17 @@ Results:
 * 2^28
   * C:          0.583333 s
   * Assembly:   0.407067 s
+
+RELEASE MODE:
+* 2^20
+  * C:           s
+  * Assembly:    s
+* 2^24
+  * C:           s
+  * Assembly:    s
+* 2^28
+  * C:           s
+  * Assembly:    s
 
 Analysis:
 

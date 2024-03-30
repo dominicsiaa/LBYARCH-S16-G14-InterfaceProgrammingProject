@@ -5,18 +5,16 @@ default rel
 global asm_sdot
 
 asm_sdot:
-    pxor xmm6, xmm6
-    pxor xmm7, xmm7
+    pxor xmm0, xmm0
     sdot:
-        movss xmm12, [rdx]
-        movss xmm13, [r8]
+        movss xmm1, [rdx]
+        movss xmm2, [r8]
         
-        vmulss xmm7, xmm12, xmm13
-        addss xmm6, xmm7
+        mulss xmm1, xmm2
+        addss xmm0, xmm1
         
         add rdx, 4
         add r8, 4
-    
+        
     loop sdot
-    movss xmm0, xmm6
     ret
