@@ -3,7 +3,7 @@ LBYARCH S16, Group 14
 - Montenegro, Jaycee
 - Sia, Dominic
 
-Our problem involves
+Our project involves calculating the dot product of two vectors using single-precision floats, both in x86-64 assembly and C.
 
 Results:
 - Program output with correctness check can be found in DebugModeOutput.jpg and ReleaseModeOutput.png
@@ -35,6 +35,6 @@ Analysis:
 
 Our comparative analysis between Assembly and C programming languages, particularly in Debug mode, indicates that Assembly leads to a significant reduction in execution time, demonstrating improvements of 28.39%, 28.86%, and 30.22% for data sizes of 2^20, 2^24, and 2^28, respectively. This performance enhancement is attributed to Assembly's lower-level nature and reduced overhead. In contrast, C's performance in Debug mode is slightly slower due to its higher-level abstraction and more overhead. 
 
-In release mode, 
+In release mode, on the other hand C is now relatively faster than assembly with improvements of 36.74%, 35.21%, 30.85% for data sizes of 2^20, 2^24, and 2^28, respectively. The improvements are likely attributable to the optimizations automatically applied in this mode. 
 
 Despite this, both languages exhibit impressive speeds when compared to other programming options, underscoring the value of learning lower-level languages for its efficiency benefits.
