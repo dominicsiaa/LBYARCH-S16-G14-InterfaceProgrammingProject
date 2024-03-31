@@ -20,15 +20,15 @@ DEBUG MODE:
 
 RELEASE MODE:
 * 2^20
-  * C:           s
-  * Assembly:    s
+  * C:          0.000000 s
+  * Assembly:   0.001867 s
 * 2^24
-  * C:           s
-  * Assembly:    s
+  * C:          0.000000 s
+  * Assembly:   0.027067 s
 * 2^28
-  * C:           s
-  * Assembly:    s
+  * C:           0.000000 s
+  * Assembly:    0.430667 s
 
 Analysis:
 
-Our comparative analysis between Assembly and C programming languages indicates that Assembly can lead to a noticeable reduction in execution time, demonstrating 28.39%, 28.86%, and 30.22% improvements for data sizes of 2^20, 2^24, and 2^28 respectively. This performance enhancement is attributed to Assembly's lower-level nature, which reduces overhead and presents a broader spectrum of optimization opportunities. Conversely, C's slightly slower performance is due to its higher-level abstraction, which adds more overhead and also fewer options for optimizing performance. Nevertheless, both languages exhibit impressive speed when compared to other programming options which show the value of learning Assembly for its efficiency.
+Our comparative analysis between Assembly and C programming languages, particularly in Debug mode, indicates that Assembly leads to a significant reduction in execution time, demonstrating improvements of 28.39%, 28.86%, and 30.22% for data sizes of 2^20, 2^24, and 2^28, respectively. This performance enhancement is attributed to Assembly's lower-level nature, which reduces overhead and offers a wider range of optimization opportunities. In contrast, C's performance in Debug mode is slightly slower due to its higher-level abstraction, which introduces more overhead and fewer options for performance optimization. However, it's noteworthy that in Release mode, the performance measurement for C intriguingly registers at 0 seconds due to an unidentified issue with clock checks. Despite this anomaly, both languages exhibit impressive speeds when compared to other programming options, underscoring the value of learning Assembly for its efficiency benefits.
