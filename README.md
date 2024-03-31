@@ -22,14 +22,14 @@ DEBUG MODE:
 
 RELEASE MODE:
 * 2^20
-  * C:          0.000000 s
-  * Assembly:   0.001500 s
+  * C:          0.001033 s
+  * Assembly:   0.001633 s
 * 2^24
-  * C:          0.000000 s
-  * Assembly:   0.024067 s
+  * C:          0.016500 s
+  * Assembly:   0.025467 s
 * 2^28
-  * C:          0.000000 s
-  * Assembly:   0.388733 s
+  * C:          0.268933 s
+  * Assembly:   0.388933 s
 
 Analysis:
 
