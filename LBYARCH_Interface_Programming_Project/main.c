@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <time.h>
-#include <chrono>
 
 #include "c_sdot.c"
 extern float asm_sdot(int n, float a[], float b[]);
@@ -27,21 +26,23 @@ void calculateExecutionTime(int n) {
     double total_time_asm = 0.0;
     int correct = 0;
 
-    for (int i = 0; i < 30; i++) {
-        clock_t start_c = clock();
-        float result_c = c_sdot(n, a, b);
-        clock_t end_c = clock();
-        total_time_c += ((double)(end_c - start_c)) / CLOCKS_PER_SEC;
+    clock_t begin, end;
 
-        clock_t start_asm = clock();
-        float result_asm = asm_sdot(n, a, b);
-        clock_t end_asm = clock();
-        total_time_asm += ((double)(end_asm - start_asm)) / CLOCKS_PER_SEC;
+    for (int i = 0; i < 30; i++) {
+        begin = clock();
+        float result_c = c_sdot(n, a, b);
+        end = clock();
+        total_time_c += ((double)(end - begin)) / CLOCKS_PER_SEC;
     }
 
+    for (int i = 0; i < 30; i++) {
+		begin = clock();
+		float result_asm = asm_sdot(n, a, b);
+		end = clock();
+		total_time_asm += ((double)(end - begin)) / CLOCKS_PER_SEC;
+	}
+
     double avg_time_c = total_time_c / 30.0;
-    printf("total_time_c: %f\n", total_time_c); // Debugging purposes
-    printf("avg_time_c: %f\n", avg_time_c); // Debugging purposes
     double avg_time_asm = total_time_asm / 30.0;
 
     printf("EXECUTION TIME MEASUREMENT\n");
