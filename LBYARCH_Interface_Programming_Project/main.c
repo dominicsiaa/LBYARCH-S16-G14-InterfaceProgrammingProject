@@ -33,6 +33,7 @@ void calculateExecutionTime(int n) {
         float result_c = c_sdot(n, a, b);
         end = clock();
         total_time_c += ((double)(end - begin)) / CLOCKS_PER_SEC;
+        printf("", result_c);
     }
 
     for (int i = 0; i < 30; i++) {
